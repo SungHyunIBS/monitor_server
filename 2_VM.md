@@ -12,6 +12,9 @@ DNS : ymmonitor.koreacentral.cloudapp.azure.com
 * Change password
 
 	<img src = "./images/vm/vm-01.png" width = "60%"></img>
+	* If you want to access by password, modify `sshd_config`
+		* `PasswordAuthentication yes`
+		* `sshd_config` or some conf file in `sshd_config.d/`
 
 * Sudo permission
 	* `sudo nano /etc/sudoers`
@@ -51,6 +54,19 @@ DNS : ymmonitor.koreacentral.cloudapp.azure.com
 	
 	<img src = "./images/vm/vm-07.png" width = "100%"></img>
 		
+## Memory Setting (SWAP)
+* Check SWAP
+	* `free -h` or `swapon --summary`
+* Create SWAP (4G)
+	* `sudo fallocate -l 4G /swapfile`
+	* `sudo chmod 600 /swapfile`
+	* `sudo mkswap /swapfile`
+	* `sudo swapon /swapfile`
+* Keep SWAP when reboot
+	* `echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab`
+
+
+## ETC		
 * Update packages
 	* `sudo apt update`
 

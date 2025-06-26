@@ -70,7 +70,11 @@
 
 ### SSH Port
 * Add SSH port `4022`
-* After VM setting, remove `22` 
 
 <img src = "./images/azure/azure-14.png" width = "60%"></img>
-     
+
+* After VM setting, remove `22` 
+	* `cd /etc/ssh`
+	* edit `sshd_config`
+		* `22` &rarr; `4022`
+	* Reboot
